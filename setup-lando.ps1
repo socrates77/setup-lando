@@ -98,7 +98,7 @@ function Confirm-Environment {
     if (Test-Path "$env:WINDIR\system32\wsl.exe") {
         $wslVersion = & wsl.exe --version | Out-String
         # Check for "WSL version" string on the first line
-        if ($wslVersion -notmatch "WSL version") {
+        if ($wslVersion -notmatch "(WSL)?\s?[vV]ersion[e]?\S(WSL)?") {
             $wslVersion = $null
         }
         else {
